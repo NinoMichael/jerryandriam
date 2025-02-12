@@ -4,23 +4,24 @@
           <img 
               :src = "profile" 
               alt = "Profil" 
-              class = "w-24 h-24 border border-gray-300 rounded-full p-1"
+              class = "w-20 h-20 sm:w-24 sm:h-24 border border-gray-300 rounded-full p-1"
               loading = "lazy" 
           />
         </div>
 
-        <div class = "flex space-x-6 items-center">
-            <nav>
-                <ul class = "flex space-x-8 text-sm">
-                    <li>{{ t('home')}}</li>
-                    <li>{{ t('feature')}}</li>
-                    <li>{{ t('resume')}}</li>
-                    <li>PORTFOLIO</li>
-                    <li>CONTACT</li>
-                </ul>
-            </nav>
+        <div class = "flex flex-row-reverse lg:flex-row lg:space-x-12 items-center">
+            <div>  
+                <Menubar 
+                    :model = "items" 
+                    class = "text-sm bg-transparent"
+                    :pt="{
+                        rootList: 'gap-6 lg:w-auto w-36 lg:p-0 p-6 lg:left-0 -left-24',
+                        itemLink: 'font-varela text-sm text-black hover:text-blue-700',
+                    }"
+                />
+            </div>
 
-            <div>
+            <div class="lg:mr-0 sm:mr-8 mr-4">
                 <DropdownLang />
             </div>
         </div>
@@ -28,9 +29,21 @@
 </template>
 
 <script setup>
-import profile from "../../assets/images/jerry_profile.png";
-import DropdownLang from "../DropdownLang.vue";
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import Menubar from 'primevue/menubar';
+
+import DropdownLang from "../DropdownLang.vue";
+
+import profile from "../../assets/images/jerry_profile.png";
 
 const { t } = useI18n();
+
+const items = computed(() => [
+    { label: t('home') },
+    { label: t('feature') },
+    { label: t('resume') },
+    { label: "PORTFOLIO" },
+    { label: "CONTACT" },
+]);
 </script>
