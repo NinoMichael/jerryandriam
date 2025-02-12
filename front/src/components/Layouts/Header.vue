@@ -16,7 +16,9 @@
                     class = "text-sm bg-transparent"
                     :pt="{
                         rootList: 'gap-6 lg:w-auto w-36 lg:p-0 p-6 lg:left-0 -left-24',
-                        itemLink: 'font-varela text-sm text-black hover:text-blue-700',
+                        itemLink: checked ?
+                                    'font-varela text-sm text-white hover:text-blue-500':
+                                    'font-varela text-sm text-black hover:text-blue-700', 
                     }"
                 />
             </div>
@@ -38,6 +40,10 @@ import DropdownLang from "../DropdownLang.vue";
 import profile from "../../assets/images/jerry_profile.png";
 
 const { t } = useI18n();
+
+const props = defineProps({
+    checked: Boolean,
+});
 
 const items = computed(() => [
     { label: t('home') },
