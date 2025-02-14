@@ -12,19 +12,27 @@
         <div class = "flex flex-row-reverse lg:flex-row lg:space-x-12 items-center">
             <div>  
                 <Menubar 
-                    :model = "items" 
+                    :model = "items"    
                     class = "text-sm bg-transparent"
                     :pt="{
-                        rootList: 'gap-6 lg:w-auto w-36 lg:p-0 p-6 lg:left-0 -left-24',
+                        rootList: checked ? 
+                                    'bg-gray-500 sm:bg-transparent gap-6 lg:w-auto w-36 lg:p-0 p-6 lg:left-0 -left-24':
+                                    'gap-6 lg:w-auto w-36 lg:p-0 p-6 lg:left-0 -left-24',
                         itemLink: checked ?
-                                    'font-varela text-sm text-white hover:text-blue-500':
+                                    'font-varela text-sm text-white hover:text-blue-400':
                                     'font-varela text-sm text-black hover:text-blue-700', 
+                        itemContent: 'bg-transparent',
+                        button: checked ?
+                                    'text-white':
+                                    'text-black',
                     }"
                 />
             </div>
 
             <div class="lg:mr-0 sm:mr-8 mr-4">
-                <DropdownLang />
+                <DropdownLang 
+                    :checked="checked"
+                />
             </div>
         </div>
     </div>
@@ -44,6 +52,8 @@ const { t } = useI18n();
 const props = defineProps({
     checked: Boolean,
 });
+
+const emit = defineEmits(["update:checked"]);
 
 const items = computed(() => [
     { label: t('home') },

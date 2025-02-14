@@ -1,7 +1,7 @@
 <template>
     <div 
         class="flex flex-col justify-center items-center space-y-6 py-3 rounded-full borde shadow-md"
-        :class="{'bg-gray-600 border-gray-700 text-white': checked, 
+        :class="{'bg-gray-500 border-gray-500 text-white': checked, 
                 'border-gray-200 bg-white text-black/50': !checked
                 }" 
     >

@@ -16,8 +16,3 @@ body {
 .font-varela {
     font-family: 'Varela Round';
 }
-
-.p-select-option.p-select-option-selected {
-    @apply bg-transparent;
-    @apply text-blue-800;
-}

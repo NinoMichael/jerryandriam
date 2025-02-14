@@ -5,7 +5,7 @@
     >
         <Header v-model:checked="checked" />
 
-        <div class="fixed top-[45%] right-2">
+        <div class="fixed bottom-[10%] sm:bottom-0 sm:top-[45%] right-2">
             <SwitchTheme v-model:checked="checked"/>
         </div>
     </div>
@@ -23,6 +23,8 @@ const checked = ref(localStorage.getItem("theme") === "dark");
 onMounted(() => {
     if (checked.value) {
         document.body.classList.add("bg-gray-700", "text-white");
+    } else {
+        document.body.classList.add("bg-gray-100", "text-black");
     }
 });
 
