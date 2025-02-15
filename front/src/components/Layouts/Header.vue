@@ -1,5 +1,5 @@
 <template>
-    <div class = "px-12 py-3 h-28 flex justify-between items-center">
+    <div class = "z-30 relative px-12 py-3 h-28 flex justify-between items-center">
         <div>
           <img 
               :src = "profile" 
