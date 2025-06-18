@@ -9,6 +9,14 @@
             <WelcomeSection v-model:checked="checked"/>
         </div>
 
+        <div class="lg:my-28 my-8">
+            <FeatureSection v-model:checked="checked"/>
+        </div>
+
+        <div class="lg:my-40 my-8">
+            <SkillSection v-model:checked="checked"/>
+        </div>
+
         <div class="fixed bottom-[10%] sm:bottom-0 sm:top-[45%] right-2">
             <SwitchTheme v-model:checked="checked"/>
         </div>
@@ -20,12 +28,12 @@ import { ref, watch, onMounted } from 'vue';
 
 import Header from "./components/Layouts/Header.vue";
 import WelcomeSection from "./components/inc/WelcomeSection.vue"
+import FeatureSection from "./components/inc/FeatureSection.vue"
+import SkillSection from "./components/inc/SkillSection.vue"
 import SwitchTheme from "./components/SwitchTheme.vue";
 
-/** THEME CONFIGURATION */
 const checked = ref(localStorage.getItem("theme") === "dark");
 
-// Appliquer le thème au chargement
 onMounted(() => {
     if (checked.value) {
         document.body.classList.add("bg-gray-700", "text-white");
@@ -34,7 +42,6 @@ onMounted(() => {
     }
 });
 
-// Écouteur pour basculer le thème et sauvegarder la préférence
 watch(checked, (newVal) => {
     localStorage.setItem("theme", newVal ? "dark" : "light");
 });

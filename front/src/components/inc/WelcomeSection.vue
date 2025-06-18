@@ -29,7 +29,7 @@
             <img 
                 :src = "jerry" 
                 alt = "Jerry"
-                class = "absolute z-0 xl:-top-[9%] lg:top-1 sm:-top-6 -top-2 min-[560px]:-top-16 max-[400px]:top-12 right-auto left-auto xl:w-[33rem] lg:w-[30rem] w-[29rem]"
+                class = "absolute z-0 xl:-top-[6%] lg:top-1 sm:-top-6 -top-2 min-[560px]:-top-16 max-[400px]:top-12 right-auto left-auto xl:w-[33rem] lg:w-[30rem] w-[29rem]"
                 loading = "lazy"    
             >
         </div>
@@ -71,7 +71,6 @@ const typeEffect = () => {
   }
 };
 
-// Fonction pour redémarrer l'animation
 const restartAnimation = () => {
   clearTimeout(timeoutId);
   fullText.value = t("frontend");

@@ -58,8 +58,9 @@ const emit = defineEmits(["update:checked"]);
 const items = computed(() => [
     { label: t('home') },
     { label: t('feature') },
-    { label: t('resume') },
+    { label: t('skills') },
     { label: "PORTFOLIO" },
+    { label: t('resume') },
     { label: "CONTACT" },
 ]);
 </script>
