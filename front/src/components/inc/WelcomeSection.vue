@@ -4,7 +4,7 @@
             <h1 class="xl:text-[2.6rem] lg:text-[2.3rem] sm:text-[2rem] text-[1.7rem] lg:text-start text-center font-varela">
                 {{ t('hello') }} <br>
                 <strong :class = "{'text-blue-400': checked, 'text-blue-700/70': !checked}">ANDRIAMIHAJA Henintsoa Jerry</strong> <br>    
-                <span>&lt;&gt;{{ text }}&lt;/&gt;</span>
+                <span>&lt;&gt;{{ text }}<span class="animate-blink">|</span>&lt;/&gt;</span>
             </h1>
             <p class="mt-8 lg:text-start text-center">
                 {{ t('intro') }}
@@ -29,7 +29,7 @@
             <img 
                 :src = "jerry" 
                 alt = "Jerry"
-                class = "absolute z-0 xl:-top-[6%] lg:top-1 sm:-top-6 -top-2 min-[560px]:-top-16 max-[400px]:top-12 right-auto left-auto xl:w-[33rem] lg:w-[30rem] w-[29rem]"
+                class = "absolute z-0 xl:-top-[4%] lg:top-1 sm:-top-6 -top-2 min-[560px]:-top-16 max-[400px]:top-12 right-auto left-auto xl:w-[33rem] lg:w-[30rem] w-[29rem]"
                 loading = "lazy"    
             >
         </div>
@@ -86,3 +86,16 @@ onMounted(() => {
 
 watch(locale, restartAnimation);
 </script>
+
+<style>
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+</style>

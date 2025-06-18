@@ -17,6 +17,10 @@
             <SkillSection v-model:checked="checked"/>
         </div>
 
+        <div class="lg:my-40 my-8">
+            <PortfolioSection v-model:checked="checked"/>
+        </div>
+
         <div class="fixed bottom-[10%] sm:bottom-0 sm:top-[45%] right-2">
             <SwitchTheme v-model:checked="checked"/>
         </div>
@@ -31,6 +35,7 @@ import WelcomeSection from "./components/inc/WelcomeSection.vue"
 import FeatureSection from "./components/inc/FeatureSection.vue"
 import SkillSection from "./components/inc/SkillSection.vue"
 import SwitchTheme from "./components/SwitchTheme.vue";
+import PortfolioSection from './components/inc/PortfolioSection.vue';
 
 const checked = ref(localStorage.getItem("theme") === "dark");
 

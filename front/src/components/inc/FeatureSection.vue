@@ -1,9 +1,9 @@
 <template>
     <div class="px-16">
-        <h2 class="font-varela text-blue-700/70 font-light text-xl">
+        <h2 class="font-varela text-center text-blue-700/70 font-light text-xl">
             {{ t('feature') }}
         </h2>
-        <p class="mt-4 text-2xl font-semibold w-[50%]">
+        <p class="mt-4 text-2xl text-center font-semibold">
             {{ t('tailorMade') }}   
         </p>
 
