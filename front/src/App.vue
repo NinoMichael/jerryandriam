@@ -1,7 +1,7 @@
 <template>
     <div 
         :class="{'bg-gray-700 text-white': checked, 'bg-gray-200 text-black/80': !checked}" 
-        class="relative transition-all duration-700 overflow-x-hidden"
+        class="relative transition-all duration-700 overflow-x-hidden pb-20"
     >
         <Header :checked="checked" />
 
@@ -25,6 +25,14 @@
             <ResumeSection v-model:checked="checked"/>
         </div>
 
+        <div class="lg:mt-40 lg:mb-28 my-8">
+            <ContactSection v-model:checked="checked"/>
+        </div>
+
+        <div>
+            <Footer />
+        </div>
+
         <div class="fixed bottom-[10%] sm:bottom-0 sm:top-[45%] right-2">
             <SwitchTheme v-model:checked="checked"/>
         </div>
@@ -41,6 +49,8 @@ import SkillSection from "./components/inc/SkillSection.vue"
 import SwitchTheme from "./components/SwitchTheme.vue";
 import PortfolioSection from './components/inc/PortfolioSection.vue';
 import ResumeSection from './components/inc/ResumeSection.vue';
+import ContactSection from './components/inc/ContactSection.vue';
+import Footer from './components/Layouts/Footer.vue';
 
 const checked = ref(localStorage.getItem("theme") === "dark");
 
