@@ -1,5 +1,12 @@
 <template>
     <div class="px-16">
+        <Toast 
+            :pt="{
+                message: 'p-2 bg-white',
+                summary: '-mt-0.5',
+                detail: '-mt-1'
+            }"
+        />
         <h2 class="font-varela text-center text-blue-700/70 font-light text-xl">
             CONTACT
         </h2>
@@ -86,20 +93,33 @@
                     </label>
                     <Textarea 
                         v-model="formData.content"
-                        rows="10"
+                        rows="8"
                         class="!text-sm !border !border-gray-300 !rounded !py-3 !px-4 focus-within:ring focus-within:ring-blue-700/70"
                     />
                 </div>
+
+                <Button 
+                    :label="t('send')"
+                    :loading="loading"
+                    class="mt-3 py-2 bg-blue-700/70 hover:bg-blue-700 rounded text-white"
+                    @click="handleSendEmail"
+                />
             </div>
         </form>
     </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { ref, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 import InputText from "primevue/inputtext";
 import Textarea from "primevue/textarea";
+import Button from "primevue/button";
+import emailjs from 'emailjs-com';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
+
+const toast = useToast();
 
 import handshake from "../../assets/images/handshake.jpg";
 
@@ -129,6 +149,63 @@ const socialLinks = [
         url: "https://web.facebook.com/ninomichael.andriamihaja/",
     },
 ]
+
+const SERVICE_ID = 'service_p8gyw8o';
+const TEMPLATE_ID = 'template_qiahb8i';
+const PUBLIC_KEY = 'nqYZFyXkg9bAhLB_v';
+
+const loading = ref(false);
+
+const handleSendEmail = () => {
+    if (formData.fullname == '' || formData.email == '' || formData.subject == '' || formData.content == '' ) {
+        toast.add(
+                { 
+                    severity: 'error',
+                    summary: 'Erreur',
+                    detail: 'Veuillez remplir tous les champs',
+                    life: 3000 
+                }
+            );
+    } else {
+        loading.value = true;
+
+        const templateParams = {
+            from_name: formData.fullname,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.content,
+        };
+
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+            .then(() => {
+                formData.fullname = "";
+                formData.email = "";
+                formData.subject = "";
+                formData.content = "";
+                loading.value = false;
+
+                toast.add(
+                    { 
+                        severity: 'info',
+                        summary: 'Succès',
+                        detail: 'Message envoyé',
+                        life: 3000 
+                    }
+                );
+            }, (err) => {
+                loading.value = false;
+                console.error("FAILED...", err);
+                toast.add(
+                    { 
+                        severity: 'error',
+                        summary: 'Oups',
+                        detail: 'Une erreur est survenue. Veuillez réessayer',
+                        life: 3000 
+                    }
+                );
+            });
+    }
+};
 </script>
 
 <style>

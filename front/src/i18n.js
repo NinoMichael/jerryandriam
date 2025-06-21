@@ -58,6 +58,7 @@ const messages = {
         subject: "Subject",
         yourMessage: "Your message",
         findMe: "FIND ME WITH",
+        send: "Send",
         allRightsReserved: "All rights reserved",
     },
     fr: {
@@ -117,6 +118,7 @@ const messages = {
         subject: "Sujet",
         yourMessage: "Votre message",
         findMe: "TROUVEZ-MOI SUR",
+        send: "Envoyer",        
         allRightsReserved: "Tous droits réservés",
     }
 };
