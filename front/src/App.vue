@@ -63,7 +63,7 @@
             <Footer />
         </div>
 
-        <div class="fixed bottom-[10%] sm:bottom-0 sm:top-[45%] right-2">
+        <div class="fixed bottom-72 right-2">
             <SwitchTheme v-model:checked="checked"/>
         </div>
 

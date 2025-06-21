@@ -1,5 +1,5 @@
 <template>
-    <div class = "z-30 relative px-12 py-3 h-28 flex justify-between items-center">
+    <div class = "z-30 relative px-8 lg:px-12 py-3 h-28 flex justify-between items-center">
         <div>
           <img 
               :src = "profile" 
@@ -16,8 +16,8 @@
                     class = "text-sm bg-transparent"
                     :pt="{
                         rootList: checked ? 
-                                    'bg-gray-500 sm:bg-transparent gap-6 lg:w-auto w-36 lg:p-0 p-6 lg:left-0 -left-24':
-                                    'gap-6 lg:w-auto w-36 lg:p-0 p-6 lg:left-0 -left-24',
+                                    'bg-gray-500 sm:bg-transparent gap-6 lg:w-auto w-40 lg:p-0 p-6 lg:left-0 -left-28':
+                                    'gap-6 lg:w-auto w-40 lg:p-0 p-6 lg:left-0 -left-28',
                         itemLink: checked ?
                                     'font-varela text-sm text-white hover:text-blue-400':
                                     'font-varela text-sm text-black hover:text-blue-700', 

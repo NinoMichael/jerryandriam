@@ -1,18 +1,18 @@
 <template>
-    <div class = "flex lg:flex-row flex-col-reverse lg:space-x-28 justify-center lg:items-start items-center lg:mx-0 mx-auto">
-        <div class = "w-1/2">
-            <h1 class="text-[2.6rem] text-start font-varela">
+    <div class="px-8 lg:px-12 flex md:flex-row flex-col-reverse md:space-x-8 lg:space-x-28 justify-center lg:items-start items-center lg:mx-0 mx-auto">
+        <div class = "mt-8 md:w-1/2 lg:mt-0">
+            <h1 class="text-center text-[2rem] md:text-start lg:text-[2.6rem] font-varela">
                 {{ t('hello') }} <br>
                 <strong :class = "{'text-blue-400': checked, 'text-blue-700/70': !checked}">ANDRIAMIHAJA Henintsoa Jerry</strong> <br>    
                 <span>&lt;&gt;{{ text }}<span class="animate-blink">|</span>&lt;/&gt;</span>
             </h1>
-            <p class="mt-8 lg:text-start text-center">
+            <p class="mt-8 md:text-start text-center">
                 {{ t('intro') }}
             </p>
             <a
                 :href="cv"
                 download="CV_ANDRIAMIHAJA_Henintsoa_Jerry.pdf"
-                class="cursor-pointer text-white w-64 shadow rounded p-3 mt-10 flex justify-center items-center lg:mx-0 mx-auto transition duration-300"
+                class="cursor-pointer text-white w-64 shadow rounded p-3 mt-10 flex justify-center items-center md:mx-0 mx-auto transition duration-300"
                 :class="{
                     'bg-blue-400': checked,
                     'bg-blue-700/70 hover:bg-blue-700': !checked
@@ -25,7 +25,7 @@
         </div>
 
         <div 
-            class = "z-0 mt-16 w-[28rem] h-96 shadow-2xl rounded-2xl overflow-visible"
+            class = "z-0 mt-48 lg:mt-16 w-full md:w-96 lg:w-[28rem] h-48 lg:h-96 shadow-2xl rounded-2xl overflow-visible"
             :class = "{
                 'bg-gray-700/50 shadow-gray-500/60 inset-shadow-lg' : checked, 
                 'bg-gray-200/40 inset-shadow-lg border border-gray-300/40': !checked}"
@@ -33,7 +33,7 @@
             <img 
                 :src = "jerry" 
                 alt = "Jerry"
-                class = "absolute z-0 -top-28 w-[33rem]"
+                class = "absolute z-0 -top-4 lg:-top-28 left-8 md:left-auto w-96 md:w-[27rem] lg:w-[33rem]"
                 loading = "lazy"    
             >
         </div>
