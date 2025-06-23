@@ -63,19 +63,19 @@
             v-model:visible="detailPortfolioDialog"
             header="Détail"
             modal
-            class="w-[60vw] !overflow-hidden !h-[28rem] py-2 px-8 pb-16"
+            class="w-[85vw] lg:w-[60vw] overflow-scroll lg:!overflow-hidden !lg:h-[28rem] py-2 px-8 pb-16"
             :class="{
                 'bg-gray-700 text-white': checked,
             }"
             :pt="{
-                content: '!overflow-hidden !h-96',
+                content: 'overflow-scroll lg:!overflow-hidden !h-96',
                 footer: '!h-8',
                 pcCloseButton: '!outline-none hover:!text-blue-700/70',
             }"
         >
-            <div class="my-6 h-full grid grid-cols-2 gap-12">
+            <div class="my-6 h-full grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div 
-                    class="overflow-hidden p-6 flex justify-center"
+                    class="overflow-hidden h-40 lg:h-auto p-6 flex justify-center"
                     :class="{
                         'bg-blue-400': checked,
                         'bg-blue-700/40': !checked,
@@ -83,7 +83,7 @@
                 >
                     <img 
                         :src="selectedPortfolio.overview" 
-                        class="object-cover"
+                        class="h-48 lg:h-auto object-cover"
                     />
                 </div>
 
