@@ -20,7 +20,7 @@
             {{ t('happyToDiscuss') }}   
         </p>
 
-        <form class="lg:mt-6 grid lg:grid-cols-2 gap-12 lg:gap-24 px-4 py-12 lg:px-20 lg:shadow-lg">
+        <form class="lg:mt-6 grid lg:grid-cols-2 gap-12 lg:gap-24 px-0 py-12 lg:px-20 lg:shadow-lg">
             <div class="flex flex-col justify-between">
                 <div>
                     <img 

@@ -66,6 +66,7 @@
             class="w-[85vw] lg:w-[60vw] overflow-scroll lg:!overflow-hidden !lg:h-[28rem] py-2 px-8 pb-16"
             :class="{
                 'bg-gray-700 text-white': checked,
+                'bg-white text-black': checked,
             }"
             :pt="{
                 content: 'overflow-scroll lg:!overflow-hidden !h-96',
