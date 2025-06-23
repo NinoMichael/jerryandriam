@@ -65,8 +65,8 @@
             modal
             class="w-[85vw] lg:w-[60vw] overflow-scroll lg:!overflow-hidden !lg:h-[28rem] py-2 px-8 pb-16"
             :class="{
-                'bg-gray-700 text-white': checked,
-                'bg-white text-black': checked,
+                '!bg-gray-700 !text-white': checked,
+                '!bg-white !text-black': !checked,
             }"
             :pt="{
                 content: 'overflow-scroll lg:!overflow-hidden !h-96',
@@ -78,8 +78,8 @@
                 <div 
                     class="overflow-hidden h-40 lg:h-auto p-6 flex justify-center"
                     :class="{
-                        'bg-blue-400': checked,
-                        'bg-blue-700/40': !checked,
+                        '!bg-blue-400': checked,
+                        '!bg-blue-700/40': !checked,
                     }"
                 >
                     <img 
@@ -92,8 +92,8 @@
                     <h4 
                         class="font-varela text-md"
                         :class="{
-                            'text-blue-400': checked,
-                            'text-blue-700': !checked
+                            '!text-blue-400': checked,
+                            '!text-blue-700': !checked
                         }"
                     >
                         {{ selectedPortfolio.title }}
@@ -117,8 +117,8 @@
                             :label="t('visitGithub')"
                             class="text-white py-2 w-64"
                             :class="{
-                                'bg-gray-600': checked,
-                                'bg-gray-700': !checked,
+                                '!bg-gray-600': checked,
+                                '!bg-gray-700': !checked,
                             }"  
                         />
                         <Button
@@ -131,8 +131,8 @@
                             :label="t('visitWebsite')"
                             class=" text-white py-2 w-64"
                             :class="{
-                                'bg-blue-400': checked,
-                                'bg-blue-700/70': !checked,
+                                '!bg-blue-400': checked,
+                                '!bg-blue-700/70': !checked,
                             }"
                         />
                     </div>
