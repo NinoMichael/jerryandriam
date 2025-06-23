@@ -54,7 +54,7 @@
                             class="p-8 rounded-lg shadow"
                             :class="{
                                 'bg-gray-600 text-white': checked,
-                                'bg-white': !checked
+                                'bg-white text-black/80': !checked
                             }"
                         >
                             <i 
@@ -99,7 +99,7 @@
                             class="p-8 rounded-lg shadow"
                             :class="{
                                 'bg-gray-600 text-white': checked,
-                                'bg-white': !checked
+                                'bg-white text-black/80': !checked
                             }"
                         >
                             <i 
@@ -144,7 +144,7 @@
                             class="p-8 rounded-lg shadow"
                             :class="{
                                 'bg-gray-600 text-white': checked,
-                                'bg-white': !checked
+                                'bg-white text-black/80': !checked
                             }"
                         >
                             <i 

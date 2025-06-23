@@ -17,7 +17,7 @@
                     :pt="{
                         rootList: checked ? 
                                     'bg-gray-500 sm:bg-transparent gap-6 lg:w-auto w-40 lg:p-0 p-6 lg:left-0 -left-28':
-                                    'gap-6 lg:w-auto w-40 lg:p-0 p-6 lg:left-0 -left-28',
+                                    'gap-6 lg:w-auto w-40 bg-white lg:p-0 p-6 lg:left-0 -left-28',
                         itemLink: checked ?
                                     'font-varela text-sm text-white hover:text-blue-400':
                                     'font-varela text-sm text-black hover:text-blue-700', 
