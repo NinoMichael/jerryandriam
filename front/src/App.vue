@@ -83,12 +83,12 @@
         />
     </div>
 
-    <SpeedInsights />
 </template>
 
 <script setup>
 import { ref, watch, onMounted } from 'vue';
-import { SpeedInsights } from '@vercel/speed-insights/vue';
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
 import ScrollTop from 'primevue/scrolltop';
 
 import Header from "./components/Layouts/Header.vue";
@@ -105,6 +105,8 @@ const checked = ref(localStorage.getItem("theme") === "dark");
 
 const el = ref(null);
 const isVisible = ref(false);
+
+injectSpeedInsights();
 
 onMounted(() => {
     if (checked.value) {
