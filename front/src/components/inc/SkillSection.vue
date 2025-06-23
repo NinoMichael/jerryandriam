@@ -1,14 +1,24 @@
 <template>
-    <div class="px-16">
-        <h2 class="text-center font-varela text-blue-700/70 font-light text-xl"> 
+    <div class="px-8 lg:px-12">
+        <h2 
+            class="text-center font-varela font-light text-xl"
+            :class="{
+                'text-blue-400': checked,
+                'text-blue-700/70': !checked
+            }"
+        > 
             {{ t('mySkills') }}
         </h2>
 
-        <div class="mt-10 mx-32 grid grid-cols-5 justify-center gap-16 items-stretch">
+        <div class="mt-10 lg:mx-32 grid grid-cols-2 lg:grid-cols-5 justify-center gap-16 items-stretch">
             <div 
                 v-for="stack in stacks"
                 :key="stack.id"
-                class="p-6 bg-white shadow text-center rounded-lg cursor-pointer hover:scale-105 ease-in-out transition-all duration-300 h-full min-h-[200px] flex flex-col justify-center"
+                class="p-6 shadow text-center rounded-lg cursor-pointer hover:scale-105 ease-in-out transition-all duration-300 h-full min-h-[200px] flex flex-col justify-center"
+                :class="{
+                    'bg-gray-600': checked,
+                    'bg-white': !checked
+                }"
             >
                 <img 
                     :src="stack.logo"
@@ -37,6 +47,10 @@ import docker from "../../assets/images/stack/docker.png";
 import git from "../../assets/images/stack/git.png";
 
 const { t, locale } = useI18n();
+
+const props = defineProps({
+    checked: Boolean,
+});
 
 const stacks = [
     {

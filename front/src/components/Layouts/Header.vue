@@ -1,5 +1,5 @@
 <template>
-    <div class = "z-30 relative px-8 lg:px-12 py-3 h-28 flex justify-between items-center">
+    <div class="z-50 relative px-8 lg:px-12 py-3 h-28 flex justify-between items-center">
         <div>
           <img 
               :src = "profile" 
@@ -13,7 +13,7 @@
             <div>  
                 <Menubar 
                     :model = "items"    
-                    class = "text-sm bg-transparent"
+                    class = "text-sm bg-transparent right-0"
                     :pt="{
                         rootList: checked ? 
                                     'bg-gray-500 sm:bg-transparent gap-6 lg:w-auto w-40 lg:p-0 p-6 lg:left-0 -left-28':
@@ -56,11 +56,19 @@ const props = defineProps({
 const emit = defineEmits(["update:checked"]);
 
 const items = computed(() => [
-    { label: t('home') },
-    { label: t('feature') },
-    { label: t('skills') },
-    { label: "PORTFOLIO" },
-    { label: t('resume') },
-    { label: "CONTACT" },
+    { label: t('home'), command: () => scrollToSection('welcome') },
+    { label: t('feature'), command: () => scrollToSection('feature') },
+    { label: t('skills'), command: () => scrollToSection('skill') },
+    { label: "PORTFOLIO", command: () => scrollToSection('portfolio') },
+    { label: t('resume'), command: () => scrollToSection('resume') },
+    { label: "CONTACT", command: () => scrollToSection('contact') },
 ]);
+
+const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
 </script>

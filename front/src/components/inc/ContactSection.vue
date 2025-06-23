@@ -1,5 +1,5 @@
 <template>
-    <div class="px-16">
+    <div class="px-8 lg:px-12">
         <Toast 
             :pt="{
                 message: 'p-2 bg-white',
@@ -7,21 +7,27 @@
                 detail: '-mt-1'
             }"
         />
-        <h2 class="font-varela text-center text-blue-700/70 font-light text-xl">
+        <h2 
+            class="font-varela text-center font-light text-xl"
+            :class="{
+                'text-blue-400': checked,
+                'text-blue-700/70': !checked
+            }"
+        >
             CONTACT
         </h2>
-        <p class="mt-4 w-[65%] text-2xl flex justify-center mx-auto text-center font-semibold">
+        <p class="mt-4 lg:w-[65%] text-2xl flex justify-center mx-auto text-center font-semibold">
             {{ t('happyToDiscuss') }}   
         </p>
 
-        <form class="mt-6 grid grid-cols-2 gap-24 py-12 px-20 shadow-lg">
+        <form class="lg:mt-6 grid lg:grid-cols-2 gap-12 lg:gap-24 px-4 py-12 lg:px-20 lg:shadow-lg">
             <div class="flex flex-col justify-between">
                 <div>
                     <img 
                         :src="handshake"
                         class="rounded-lg"
                     >
-                    <div class="mt-8">
+                    <div class="hidden lg:block lg:mt-8">
                         <p>
                             <i class="pi pi-phone mr-2"/>
                             +261 34 97 001 20
@@ -33,7 +39,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="hidden lg:block">
                     <h5 class="font-varela text-lg">
                         {{ t('findMe') }}
                     </h5>
@@ -42,7 +48,11 @@
                             v-for="socialLink in socialLinks"
                             :key="socialLink.url"
                             :href="socialLink.url"
-                            class="w-12 h-12 flex items-center justify-center rounded-tl-2xl rounded-br-2xl bg-gray-50 text-gray-700 group hover:bg-blue-700/70 hover:text-white transition-colors duration-500 active:scale-90 overflow-hidden"
+                            class="w-12 h-12 flex items-center justify-center rounded-tl-2xl rounded-br-2xl group hover:text-white transition-colors duration-500 active:scale-90 overflow-hidden"
+                            :class="{
+                                'hover:bg-blue-400 bg-gray-600 text-white': checked,
+                                'hover:bg-blue-700/70 bg-gray-50 text-gray-700': !checked
+                            }"
                         >
                             <i
                                 :class="socialLink.icon"
@@ -55,7 +65,13 @@
 
             <div class="grid space-y-6">
                 <div class="flex flex-col space-y-2">
-                    <label class="text-blue-700/70 font-semibold">
+                    <label 
+                        class="font-semibold"
+                        :class="{
+                            'text-blue-400': checked,
+                            'text-blue-700/70': !checked
+                        }"
+                    >
                         {{ t('fullname') }}
                     </label>
                     <InputText 
@@ -66,7 +82,13 @@
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <label class="text-blue-700/70 font-semibold">
+                    <label
+                        class="font-semibold"
+                        :class="{
+                            'text-blue-400': checked,
+                            'text-blue-700/70': !checked
+                        }"
+                    >
                         Email
                     </label>
                     <InputText 
@@ -77,7 +99,13 @@
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <label class="text-blue-700/70 font-semibold">
+                    <label 
+                        class="font-semibold"
+                        :class="{
+                            'text-blue-400': checked,
+                            'text-blue-700/70': !checked
+                        }"
+                    >
                         {{ t('subject') }}
                     </label>
                     <InputText 
@@ -88,7 +116,13 @@
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <label class="text-blue-700/70 font-semibold">
+                    <label 
+                        class="font-semibold"
+                        :class="{
+                            'text-blue-400': checked,
+                            'text-blue-700/70': !checked
+                        }"
+                    >
                         {{ t('yourMessage') }}
                     </label>
                     <Textarea 
@@ -101,7 +135,11 @@
                 <Button 
                     :label="t('send')"
                     :loading="loading"
-                    class="mt-3 py-2 bg-blue-700/70 hover:bg-blue-700 rounded text-white"
+                    class="mt-3 py-2 rounded text-white"
+                    :class="{
+                        'bg-blue-400 hover:bg-blue-500': checked,
+                        'bg-blue-700/70 hover:bg-blue-700': !checked
+                    }"
                     @click="handleSendEmail"
                 />
             </div>
@@ -124,6 +162,10 @@ const toast = useToast();
 import handshake from "../../assets/images/handshake.jpg";
 
 const { t, locale } = useI18n();
+
+const props = defineProps({
+    checked: Boolean,
+});
 
 const formData = reactive({
     fullname: "",

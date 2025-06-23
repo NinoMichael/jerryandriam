@@ -5,14 +5,14 @@
                 'border-gray-200 bg-white/30 text-black/50': !checked
                 }" 
     >
-        <i class="pi pi-sun"></i>
+        <i class="pi pi-moon"></i>
         <ToggleSwitch 
             :modelValue="checked" 
             @update:modelValue="$emit('update:checked', $event)"
             class="-rotate-90" 
             :pt="computedPt"
         />  
-        <i class="pi pi-moon"></i>
+        <i class="pi pi-sun"></i>
     </div>
 </template>
 

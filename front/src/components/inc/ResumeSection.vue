@@ -1,6 +1,12 @@
 <template>
-    <div class="px-16">
-        <h2 class="font-varela text-center text-blue-700/70 font-light text-xl">
+    <div class="px-8 lg:px-12">
+        <h2 
+            class="font-varela text-center font-light text-xl"
+            :class="{
+                'text-blue-400': checked,
+                'text-blue-700/70': !checked
+            }"
+        >
             {{ t('resume') }}
         </h2>
 
@@ -14,7 +20,7 @@
                     class="bg-transparent"
                     :pt="{
                         content: 'grid grid-cols-3 bg-transparent',
-                        activeBar: 'bg-blue-700/70'
+                        activeBar: checked ? 'bg-blue-400' : 'bg-blue-700/70'
                     }"
                 >
                     <Tab 
@@ -40,15 +46,25 @@
                 <TabPanels class="bg-transparent">
                     <TabPanel 
                         value="0"
-                        class="mt-8 grid grid-cols-2 gap-12 bg-transparent"
+                        class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-12 bg-transparent"
                     >
                         <div 
                             v-for="experience in experiences"
                             :key="experience.id"
-                            class="p-8 rounded-lg bg-white shadow"
+                            class="p-8 rounded-lg shadow"
+                            :class="{
+                                'bg-gray-600 text-white': checked,
+                                'bg-white': !checked
+                            }"
                         >
-                            <i class="pi pi-briefcase text-4xl text-blue-700/70"/>
-                            <div class="mt-4 flex justify-between items-center">
+                            <i 
+                                class="pi pi-briefcase text-4xl"
+                                :class="{
+                                    'text-blue-400': checked,
+                                    'text-blue-700/70': !checked
+                                }"
+                            />
+                            <div class="mt-4 flex flex-col space-y-3 items-start md:space-y-0 md:flex-row justify-between md:items-center">
                                 <div class="flex flex-col space-y-1">
                                     <h4 class="font-semibold text-xl">
                                         {{ t(experience.position) }}
@@ -59,11 +75,15 @@
                                 </div>
                                 <Chip 
                                     :label="t(experience.period)"
-                                    class="text-xs bg-blue-700/70 text-white p-2" 
+                                    class="text-xs text-white p-2" 
+                                    :class="{
+                                        'bg-blue-400': checked,
+                                        'bg-blue-700/70': !checked
+                                    }"
                                 />
                             </div>
 
-                            <p class="mt-8 w-80">
+                            <p class="mt-8 lg:w-80">
                                 {{ t(experience.mission) }}
                             </p>
                         </div>
@@ -71,15 +91,25 @@
 
                     <TabPanel 
                         value="1"
-                        class="mt-8 grid grid-cols-2 gap-12 bg-transparent"
+                        class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-12 bg-transparent"
                     >
                         <div 
                             v-for="internship in internships"
                             :key="internship.id"
-                            class="p-8 rounded-lg bg-white shadow"
+                            class="p-8 rounded-lg shadow"
+                            :class="{
+                                'bg-gray-600 text-white': checked,
+                                'bg-white': !checked
+                            }"
                         >
-                            <i class="pi pi-briefcase text-4xl text-blue-700/70"/>
-                            <div class="mt-4 flex justify-between items-center">
+                            <i 
+                                class="pi pi-briefcase text-4xl"
+                                :class="{
+                                    'text-blue-400': checked,
+                                    'text-blue-700/70': !checked
+                                }"
+                            />
+                            <div class="mt-4 flex flex-col space-y-3 items-start md:space-y-0 md:flex-row justify-between md:items-center">
                                 <div class="flex flex-col space-y-1">
                                     <h4 class="font-semibold text-xl">
                                         {{ t(internship.position) }}
@@ -90,11 +120,15 @@
                                 </div>
                                 <Chip 
                                     :label="t(internship.period)"
-                                    class="text-xs bg-blue-700/70 text-white p-2" 
+                                    class="text-xs text-white p-2" 
+                                    :class="{
+                                        'bg-blue-400': checked,
+                                        'bg-blue-700/70': !checked
+                                    }"
                                 />
                             </div>
 
-                            <p class="mt-8 w-80">
+                            <p class="mt-8 lg:w-80">
                                 {{ t(internship.mission) }}
                             </p>
                         </div>
@@ -102,18 +136,28 @@
 
                     <TabPanel 
                         value="2"
-                        class="mt-8 grid grid-cols-2 gap-12 bg-transparent"
+                        class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-12 bg-transparent"
                     >
                         <div 
                             v-for="education in educations"
                             :key="education.id"
-                            class="p-8 rounded-lg bg-white shadow"
+                            class="p-8 rounded-lg shadow"
+                            :class="{
+                                'bg-gray-600 text-white': checked,
+                                'bg-white': !checked
+                            }"
                         >
-                            <i class="pi pi-graduation-cap text-4xl text-blue-700/70"/>
-                            <div class="mt-4 flex justify-between items-center">
+                            <i 
+                                class="pi pi-graduation-cap text-4xl"
+                                :class="{
+                                    'text-blue-400': checked,
+                                    'text-blue-700/70': !checked
+                                }"
+                            />
+                            <div class="mt-4 flex flex-col space-y-3 items-start md:space-y-0 md:flex-row justify-between md:items-center">
                                 <div class="flex flex-col space-y-1">
                                     <h4 class="font-semibold text-xl">
-                                        {{ education.fact }}
+                                        {{ t(education.fact) }}
                                     </h4>
                                     <p>
                                         {{ t(education.school) }}
@@ -121,11 +165,15 @@
                                 </div>
                                 <Chip 
                                     :label="education.year"
-                                    class="text-xs bg-blue-700/70 text-white p-2" 
+                                    class="text-xs text-white p-2"
+                                    :class="{
+                                        'bg-blue-400': checked,
+                                        'bg-blue-700/70': !checked
+                                    }" 
                                 />
                             </div>
 
-                            <p class="mt-8 w-80">
+                            <p class="mt-8 lg:w-80">
                                 {{ t(education.description) }}
                             </p>
                         </div>
@@ -146,6 +194,10 @@ import Chip from 'primevue/chip'
 import { useI18n } from 'vue-i18n';
 
 const { t, locale } = useI18n();
+
+const props = defineProps({
+    checked: Boolean,
+});
 
 const educations = [
     {

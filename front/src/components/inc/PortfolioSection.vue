@@ -1,17 +1,33 @@
 <template>
-    <div class="px-16">
-        <h2 class="font-varela text-center text-blue-700/70 font-light text-xl">
+    <div class="px-8 lg:px-12">
+        <h2 
+            class="font-varela text-center font-light text-xl"
+            :class="{
+                'text-blue-400': checked,
+                'text-blue-700/70': !checked
+            }"
+        >
             PORTFOLIOS
         </h2>
   
-        <div class="mt-10 grid grid-cols-3 gap-12 items-stretch">
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-stretch">
             <div 
                 v-for="portfolio in portfolios"
                 :key="portfolio.id"
-                class="bg-white p-8 shadow rounded-lg group transition-all duration-300 ease-in-out cursor-pointer"
+                class="p-8 shadow rounded-lg group transition-all duration-300 ease-in-out cursor-pointer"
+                :class="{
+                    'bg-gray-600': checked,
+                    'bg-white': !checked
+                }"
                 @click="handleShowDetail(portfolio)"
             >
-                <div class="overflow-hidden bg-blue-700/40 p-6 flex justify-center">
+                <div 
+                    class="overflow-hidden p-6 flex justify-center"
+                    :class="{
+                        'bg-blue-400': checked,
+                        'bg-blue-700/40': !checked
+                    }"
+                >
                     <img 
                     :src="portfolio.overview" 
                     class="transition-transform duration-300 ease-in-out group-hover:scale-105"
@@ -19,12 +35,22 @@
                 </div>
     
                 <div class="mt-5 flex flex-col space-y-3">
-                    <h4 class="font-varela text-blue-700 text-md">
+                    <h4 
+                        class="font-varela text-md"
+                        :class="{
+                            'text-blue-400': checked,
+                            'text-blue-700': !checked
+                        }"
+                    >
                     {{ portfolio.title }}
                     </h4>
     
                     <p 
-                        class="text-gray-800 text-xl font-semibold transition-all duration-300 ease-in-out group-hover:text-blue-700 flex items-center justify-between"
+                        class="text-xl font-semibold transition-all duration-300 ease-in-out flex items-center justify-between"
+                        :class="{
+                            'text-white group-hover:text-blue-400': checked,
+                            'text-gray-800 group-hover:text-blue-700': !checked,
+                        }"
                     >
                         {{ t(portfolio.briefing) }}
                         <i class="pi pi-arrow-up-right text-lg opacity-0 translate-x-2 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-x-0" />
@@ -38,6 +64,9 @@
             header="Détail"
             modal
             class="w-[60vw] !overflow-hidden !h-[28rem] py-2 px-8 pb-16"
+            :class="{
+                'bg-gray-700 text-white': checked,
+            }"
             :pt="{
                 content: '!overflow-hidden !h-96',
                 footer: '!h-8',
@@ -45,7 +74,13 @@
             }"
         >
             <div class="my-6 h-full grid grid-cols-2 gap-12">
-                <div class="overflow-hidden bg-blue-700/40 p-6 flex justify-center">
+                <div 
+                    class="overflow-hidden p-6 flex justify-center"
+                    :class="{
+                        'bg-blue-400': checked,
+                        'bg-blue-700/40': !checked,
+                    }"
+                >
                     <img 
                         :src="selectedPortfolio.overview" 
                         class="object-cover"
@@ -53,7 +88,13 @@
                 </div>
 
                 <div>
-                    <h4 class="font-varela text-blue-700 text-md">
+                    <h4 
+                        class="font-varela text-md"
+                        :class="{
+                            'text-blue-400': checked,
+                            'text-blue-700': !checked
+                        }"
+                    >
                         {{ selectedPortfolio.title }}
                     </h4>
                     <p class="font-semibold">
@@ -73,7 +114,11 @@
                             rel="noopener"
                             icon="pi pi-github"
                             :label="t('visitGithub')"
-                            class="bg-gray-700 text-white py-2 w-64"
+                            class="text-white py-2 w-64"
+                            :class="{
+                                'bg-gray-600': checked,
+                                'bg-gray-700': !checked,
+                            }"  
                         />
                         <Button
                             v-if="selectedPortfolio.website" 
@@ -83,7 +128,11 @@
                             rel="noopener"
                             icon="pi pi-globe"
                             :label="t('visitWebsite')"
-                            class="bg-blue-700/70 text-white py-2 w-64"
+                            class=" text-white py-2 w-64"
+                            :class="{
+                                'bg-blue-400': checked,
+                                'bg-blue-700/70': !checked,
+                            }"
                         />
                     </div>
                 </div>
@@ -107,6 +156,11 @@ import esprit from "../../assets/images/portfolio/esprit.png";
 import pleyel from "../../assets/images/portfolio/pleyel.png";
 
 const { t, locale } = useI18n();
+
+const props = defineProps({
+    checked: Boolean,
+});
+
 const detailPortfolioDialog = ref(false);
 const selectedPortfolio = ref(null);
 

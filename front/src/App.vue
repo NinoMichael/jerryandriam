@@ -5,11 +5,15 @@
     >
         <Header :checked="checked" />
 
-        <div class="lg:my-20 my-8">
+        <div 
+            id="welcome"
+            class="lg:my-20 my-8"
+        >
             <WelcomeSection v-model:checked="checked"/>
         </div>
 
-        <div 
+        <div
+            id="feature"  
             v-animateonscroll="{ 
                 enterClass: 'translate-y-10 transform transition-all duration-500',
                 leaveClass: 'translate-y-0' 
@@ -20,47 +24,52 @@
         </div>
 
         <div 
+            id="skill"
             v-animateonscroll="{ 
                 enterClass: 'translate-y-10 transform transition-all duration-500',
                 leaveClass: 'translate-y-0' 
             }"
-            class="my-36"
+            class="my-24 lg:my-36"
         >
             <SkillSection v-model:checked="checked"/>
         </div>
 
         <div 
-            v-animateonscroll="{ 
-                enterClass: 'translate-y-10 transform transition-all duration-500',
-                leaveClass: 'translate-y-0' 
-            }"
-            class="my-36"
+            id="portfolio"
+            ref="el"
+            :class="[
+                'transition-all duration-500',
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            ]"
+            class="my-24 lg:my-36"
         >
             <PortfolioSection v-model:checked="checked"/>
         </div>
 
         <div 
+            id="resume"
             v-animateonscroll="{ 
                 enterClass: 'translate-y-10 transform transition-all duration-500',
                 leaveClass: 'translate-y-0' 
             }"
-            class="lg:my-36 my-8"
+            class="my-24 lg:my-36"
         >
             <ResumeSection v-model:checked="checked"/>
         </div>
 
         <div
+            id="contact"
             v-animateonscroll="{ 
                 enterClass: 'translate-y-10 transform transition-all duration-500',
                 leaveClass: 'translate-y-0' 
             }"
-            class="mt-36 mb-28"
+            class="mt-24 lg:mt-36 mb-28"
         >
             <ContactSection v-model:checked="checked"/>
         </div>
 
         <div>
-            <Footer />
+            <Footer v-model:checked="checked"/>
         </div>
 
         <div class="fixed bottom-72 right-2">
@@ -91,6 +100,9 @@ import Footer from './components/Layouts/Footer.vue';
 
 const checked = ref(localStorage.getItem("theme") === "dark");
 
+const el = ref(null);
+const isVisible = ref(false);
+
 onMounted(() => {
     if (checked.value) {
         document.body.classList.add("bg-gray-700", "text-white");
@@ -102,4 +114,18 @@ onMounted(() => {
 watch(checked, (newVal) => {
     localStorage.setItem("theme", newVal ? "dark" : "light");
 });
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        isVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.1 }
+  )
+
+  if (el.value) observer.observe(el.value);
+})
 </script>
