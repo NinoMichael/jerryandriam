@@ -4,7 +4,7 @@
           <img 
               :src = "profile" 
               alt = "Profil" 
-              class = "w-20 h-20 sm:w-24 sm:h-24 border border-gray-300 rounded-full p-1"
+              class = "w-16 h-16 sm:w-24 sm:h-24 border border-gray-300 rounded-full p-1"
               loading = "lazy" 
           />
         </div>

@@ -33,7 +33,7 @@
             <img 
                 :src = "jerry" 
                 alt = "Jerry"
-                class = "absolute z-0 top-4 lg:-top-28 left-20 w-72 md:w-80 md:left-auto lg:w-[33rem]"    
+                class = "absolute z-0 top-4 lg:-top-28 left-16 w-72 md:w-80 md:left-auto lg:w-[33rem]"    
             >
         </div>
     </div>
