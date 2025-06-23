@@ -82,10 +82,13 @@
             }"
         />
     </div>
+
+    <SpeedInsights />
 </template>
 
 <script setup>
 import { ref, watch, onMounted } from 'vue';
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 import ScrollTop from 'primevue/scrolltop';
 
 import Header from "./components/Layouts/Header.vue";
