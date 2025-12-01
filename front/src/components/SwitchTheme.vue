@@ -9,7 +9,7 @@
         <ToggleSwitch 
             :modelValue="checked" 
             @update:modelValue="$emit('update:checked', $event)"
-            class="-rotate-90" 
+            class="-rotate-90 bg-transparent!" 
             :pt="computedPt"
         />  
         <i class="pi pi-sun"></i>

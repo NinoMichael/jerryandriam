@@ -1,5 +1,5 @@
 <template>
-    <div class="z-50 relative px-8 lg:px-12 py-3 h-28 flex justify-between items-center">
+    <div class="z-50 relative px-8 lg:px-12 2xl:px-52 py-3 h-28 flex justify-between items-center">
         <div>
           <img 
               :src = "profile" 
@@ -17,11 +17,11 @@
                     :pt="{
                         rootList: checked ? 
                                     'bg-gray-500 sm:bg-transparent gap-6 lg:w-auto w-40 lg:p-0 p-6 lg:left-0 -left-28':
-                                    'gap-6 lg:w-auto w-40 bg-white lg:p-0 p-6 lg:left-0 -left-28',
+                                    'gap-6 lg:w-auto w-40 bg-white lg:bg-transparent lg:p-0 p-6 lg:left-0 -left-28',
                         itemLink: checked ?
                                     'font-varela text-sm text-white hover:text-blue-400':
                                     'font-varela text-sm text-black hover:text-blue-700', 
-                        itemContent: 'bg-transparent',
+                        itemContent: 'bg-transparent!',
                         button: checked ?
                                     'text-white':
                                     'text-black',

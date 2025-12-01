@@ -1,7 +1,7 @@
 <template>
     <div 
         :class="{'bg-gray-700 text-white': checked, 'bg-gray-200 text-black/80': !checked}" 
-        class="relative transition-all duration-700 overflow-x-hidden pb-20"
+        class="relative transition-all duration-700 overflow-x-hidden pb-20 2xl:pt-8"
     >
         <Header :checked="checked" />
 

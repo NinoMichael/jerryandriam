@@ -1,5 +1,5 @@
 <template>
-    <div class="px-8 lg:px-12">
+    <div class="px-8 lg:px-12 2xl:px-20">
         <h2 
             class="text-center font-varela font-light text-xl"
             :class="{
