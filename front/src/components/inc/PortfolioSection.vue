@@ -147,13 +147,13 @@
             v-model:visible="detailPortfolioDialog"
             header="Détail"
             modal
-            class="w-[85vw] lg:w-[60vw] overflow-scroll lg:!overflow-hidden !lg:h-[28rem] py-2 px-8 pb-16"
+            class="w-[85vw] lg:w-[60vw] !overflow-y-auto lg:!overflow-hidden !lg:h-[28rem] py-2 px-8 pb-16"
             :class="{
                 '!bg-gray-700 !text-white': checked,
                 '!bg-white !text-black': !checked,
             }"
             :pt="{
-                content: 'overflow-scroll lg:!overflow-hidden !h-96',
+                content: '!overflow-y-auto lg:!overflow-hidden !h-96',
                 footer: '!h-8',
                 pcCloseButton: '!outline-none hover:!text-blue-700/70',
             }"
@@ -206,17 +206,17 @@
                         {{ t(selectedPortfolio.description) }} :
                     </p>
 
-                    <p class="mt-4 ml-4">
+                    <div class="mt-4 ml-4">
                         <ul>
                             <li
                                 v-for="feature in selectedPortfolio.features"
                                 :key="feature"
                                 class="list-disc"
-                            >
+                            >   
                                 {{ t(feature) }}
                             </li>
                         </ul>
-                    </p>
+                    </div>
 
                     <div class="mt-4 flex space-x-4">
                         <Button
@@ -317,7 +317,15 @@ import Tab from 'primevue/tab';
 import TabPanels from 'primevue/tabpanels';
 import TabPanel from 'primevue/tabpanel';
 
-import mptimeRegiser from "../../assets/images/portfolio/mp-time/register.png";
+import mptimeRegister from "../../assets/images/portfolio/mp-time/register.png";
+import mptimeLogin from "../../assets/images/portfolio/mp-time/login.png";
+import mptimeTimesheet from "../../assets/images/portfolio/mp-time/timesheet.png";
+import mptimeProfile from "../../assets/images/portfolio/mp-time/profile.png";
+import mptimeImport from "../../assets/images/portfolio/mp-time/import-document.png";
+import mptimeAdmin from "../../assets/images/portfolio/mp-time/admin.png";
+import mptimeUsers from "../../assets/images/portfolio/mp-time/usager.png";
+import mptimeCreateOrder from "../../assets/images/portfolio/mp-time/create-order.png";
+import mptimeCreateCompany from "../../assets/images/portfolio/mp-time/create-company.png";
 
 import infiswapHome from "../../assets/images/portfolio/infiswap/home.png";
 import infiswapLogin from "../../assets/images/portfolio/infiswap/login.png";
@@ -329,10 +337,37 @@ import infiswapDetailReplacement from "../../assets/images/portfolio/infiswap/de
 import infiswapDashboardAdmin from "../../assets/images/portfolio/infiswap/dashboard-admin.png";
 import infiswapCrm from "../../assets/images/portfolio/infiswap/crm.png";
 
-import circus from "../../assets/images/portfolio/circus.png";
-import omega from "../../assets/images/portfolio/omega.png";
+import instageHome from "../../assets/images/portfolio/instage/home.png";
+import instageLogin from "../../assets/images/portfolio/instage/login.png";
+import instageDashboardIntern from "../../assets/images/portfolio/instage/dashboard-intern.png";
+import instageGenerateTheme from "../../assets/images/portfolio/instage/generate-theme.png";
+import instageInternship from "../../assets/images/portfolio/instage/internship.png";
+import instageDashboardSupervisor from "../../assets/images/portfolio/instage/dashboard-supervisor.png";
+import instageFollowUp from "../../assets/images/portfolio/instage/follow-up.png";
+import instageDashboardAdmin from "../../assets/images/portfolio/instage/dashboard-admin.png";
+import instageListUsers from "../../assets/images/portfolio/instage/list-users.png";
+
+import eventureHome from "../../assets/images/portfolio/eventure/home.png";
+import eventureLogin from "../../assets/images/portfolio/eventure/login.png";
+import eventureRegister from "../../assets/images/portfolio/eventure/register.png";
+import eventureDashboard from "../../assets/images/portfolio/eventure/dashboard.png";
+import eventureProfile from "../../assets/images/portfolio/eventure/profile.png";
+import eventureDashboardAdmin from "../../assets/images/portfolio/eventure/dashboard-admin.png";
+import eventureListAudience from "../../assets/images/portfolio/eventure/list-audience.png";
+import eventurePublish from "../../assets/images/portfolio/eventure/publish-event.png";
+import eventureChat from "../../assets/images/portfolio/eventure/chat.png";
+
+import omegaHome from "../../assets/images/portfolio/omega-connect/home.png";
+import omegaCollectData from "../../assets/images/portfolio/omega-connect/collect-data.png";
+import omegaContact from "../../assets/images/portfolio/omega-connect/contact.png";
+import omegaFicheProduct from "../../assets/images/portfolio/omega-connect/fiche-product.png";
+import omegaAiValidator from "../../assets/images/portfolio/omega-connect/ia-validator.png";
+import omegaRelaunchPhone from "../../assets/images/portfolio/omega-connect/relaunch-phone.png";
+import omegaSeo from "../../assets/images/portfolio/omega-connect/seo.png";
+import omegaSupport from "../../assets/images/portfolio/omega-connect/support-multicanal.png";
+import omegaTypeProject from "../../assets/images/portfolio/omega-connect/type-project.png";
+
 import esprit from "../../assets/images/portfolio/esprit.png";
-import pleyel from "../../assets/images/portfolio/pleyel.png";
 
 const { t, locale } = useI18n();
 
@@ -378,29 +413,27 @@ const handleCloseGalleryDialog = () => {
 };
 
 const portfolios = [
-{
+    {
         id: 1,
         title: 'MP-TIME',
-        overview: mptimeRegiser, 
+        overview: mptimeRegister, 
         briefing: 'mptimeBrief', 
         stack: "Vue JS, Symfony, MySQL",
         description: "mptimeDesc",
-        website: "http://infiswap.be/",
         galleries: [
-            infiswapLogin,
-            infiswapDashboardNurse,
-            infiswapCreateReplacement,
-            infiswapBinomial,
-            infiswapSetting,
-            infiswapDetailReplacement,
-            infiswapDashboardAdmin,
-            infiswapCrm,
+            mptimeLogin,
+            mptimeTimesheet,
+            mptimeProfile,
+            mptimeImport,
+            mptimeAdmin,
+            mptimeUsers,
+            mptimeCreateOrder,
+            mptimeCreateCompany,
         ],
         features: [
             "mptimeTimesheetFeature",
-            "mptimeTimesheetFeature",
-            "Gestion d'utilisateur infirmier",
-            "Gestion de réponse liée à la demande de remplacement"
+            "mptimeTrackingFeature",
+            "mptimeCompanyFeature"
         ]
     },
     {
@@ -430,39 +463,79 @@ const portfolios = [
     },
     {
         id: 3,
-        title: 'CIRCUS',
-        overview: circus, 
-        briefing: 'circusBrief',
-        stack: "React, Django, PostgreSQL",
-        description: "circusDesc",
-        github: "https://github.com/NinoMichael/circus.git",
+        title: 'INSTAGE',
+        overview: instageHome, 
+        briefing: 'instageBrief', 
+        stack: "React, Django, MySQL",
+        description: "instageDesc",
+        github: "https://github.com/Tantely004/instage.git",
+        galleries: [
+            instageLogin,
+            instageDashboardIntern,
+            instageGenerateTheme,
+            instageInternship,
+            instageDashboardSupervisor,
+            instageFollowUp,
+            instageDashboardAdmin,
+            instageListUsers,
+        ],
+        features: [
+            'instageInternshipFeature',
+            'instageTrackingProject',
+            'instageAiAssistant',
+        ]
     },
     {
         id: 4,
+        title: 'EVENTURE',
+        overview: eventureHome, 
+        briefing: 'eventureBrief',
+        stack: "React, Django, PostgreSQL",
+        description: "eventureDesc",
+        github: 'https://github.com/NinoMichael/eventure.git',
+        galleries: [
+            eventureLogin,
+            eventureRegister,
+            eventureDashboard,
+            eventureProfile,
+            eventureDashboardAdmin,
+            eventureListAudience,
+            eventurePublish,
+            eventureChat,
+        ],
+        features: [
+            'eventureEventOrganization',
+            'eventureEventParticipate',
+            'eventureEventTracking',
+        ]
+    },
+    {
+        id: 5,
         title: 'OMEGA CONNECT',
-        overview: omega, 
+        overview: omegaHome, 
         briefing: 'omegaBrief',
         stack: "JavaScript, PHP",
         description: "omegaDesc",
         website: 'https://www.omega-connect.com/',
+        galleries: [
+            omegaCollectData,
+            omegaContact,
+            omegaFicheProduct,
+            omegaAiValidator,
+            omegaRelaunchPhone,
+            omegaSeo,
+            omegaSupport,
+            omegaTypeProject,
+        ],
     },
     {
-        id: 5,
+        id: 6,
         title: 'ESPRIT AUDIO',
         overview: esprit, 
         briefing: 'espritBrief',
         stack: "JavaScript, PHP",
         description: "espritDesc",
         website: 'https://www.esprit-audio.fr/',
-    },
-    {
-        id: 6,
-        title: 'PLEYEL GYM',
-        overview: pleyel, 
-        briefing: 'pleyelBrief',
-        stack: "JavaScript, PHP",
-        description: "pleyelDesc",
-        website: 'https://www.pleyel-gym.com/',
-    },
+    }
 ];
 </script>
