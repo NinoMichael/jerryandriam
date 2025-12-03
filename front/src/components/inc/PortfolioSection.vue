@@ -27,13 +27,13 @@
                         value="0" 
                         class="w-full text-lg rounded-lg py-3 font-semibold"
                     >
-                        {{ t('uiuxdesign') }}
+                        {{ t('webapp') }}
                     </Tab>
                     <Tab 
                         value="1" 
                         class="w-full text-lg rounded-lg py-3 font-semibold"
                     >
-                        {{ t('webapp') }}
+                        {{ t('uiuxdesign') }}
                     </Tab>
                 </TabList>
 
@@ -41,7 +41,7 @@
                     <TabPanel value="0">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-stretch">
                             <div 
-                                v-for="portfolio in portfolios"
+                                v-for="portfolio in websitePortfolios"
                                 :key="portfolio.id"
                                 class="p-8 shadow rounded-lg group transition-all duration-300 ease-in-out cursor-pointer"
                                 :class="{
@@ -92,7 +92,7 @@
                     <TabPanel value="1">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-stretch">
                             <div 
-                                v-for="portfolio in portfolios"
+                                v-for="portfolio in designPortfolios"
                                 :key="portfolio.id"
                                 class="p-8 shadow rounded-lg group transition-all duration-300 ease-in-out cursor-pointer"
                                 :class="{
@@ -367,9 +367,17 @@ import omegaSeo from "../../assets/images/portfolio/omega-connect/seo.png";
 import omegaSupport from "../../assets/images/portfolio/omega-connect/support-multicanal.png";
 import omegaTypeProject from "../../assets/images/portfolio/omega-connect/type-project.png";
 
-import esprit from "../../assets/images/portfolio/esprit.png";
+import espritHome from "../../assets/images/portfolio/esprit-audio/home.png";
+import espritContact from "../../assets/images/portfolio/esprit-audio/contact.png";
+import espritAbout from "../../assets/images/portfolio/esprit-audio/about.png";
+import espritAcoustics from "../../assets/images/portfolio/esprit-audio/acoustics.png";
+import espritAlphaCable from "../../assets/images/portfolio/esprit-audio/alpha-cable.png";
+import espritEsprit from "../../assets/images/portfolio/esprit-audio/esprit.png";
+import espritLisa from "../../assets/images/portfolio/esprit-audio/lisa.png";
+import espritProAccess from "../../assets/images/portfolio/esprit-audio/pro-access.png";
+import espritReview from "../../assets/images/portfolio/esprit-audio/review.png";
 
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
 const props = defineProps({
     checked: Boolean,
@@ -412,7 +420,7 @@ const handleCloseGalleryDialog = () => {
     detailPortfolioDialog.value = true;
 };
 
-const portfolios = [
+const websitePortfolios = [
     {
         id: 1,
         title: 'MP-TIME',
@@ -527,15 +535,58 @@ const portfolios = [
             omegaSupport,
             omegaTypeProject,
         ],
+        features: [
+            'omegaExternService',
+            'omegaAiAssistance',
+        ]
     },
     {
         id: 6,
         title: 'ESPRIT AUDIO',
-        overview: esprit, 
+        overview: espritHome, 
         briefing: 'espritBrief',
         stack: "JavaScript, PHP",
         description: "espritDesc",
         website: 'https://www.esprit-audio.fr/',
+        galleries: [
+            espritContact,
+            espritAbout,
+            espritAcoustics,
+            espritAlphaCable,
+            espritEsprit,
+            espritLisa,
+            espritProAccess,
+            espritReview,
+        ],
+        features: [
+            'espritCableSale',
+            'espritEnhanceExp',
+        ]
     }
 ];
+
+const designPortfolios = [
+    {
+        id: 3,
+        title: 'AFTRIP',
+        overview: espritHome, 
+        briefing: 'aftripBrief',
+        stack: "JavaScript, PHP",
+        description: "espritDesc",
+        galleries: [
+            espritContact,
+            espritAbout,
+            espritAcoustics,
+            espritAlphaCable,
+            espritEsprit,
+            espritLisa,
+            espritProAccess,
+            espritReview,
+        ],
+        features: [
+            'espritCableSale',
+            'espritEnhanceExp',
+        ]
+    }
+]
 </script>
