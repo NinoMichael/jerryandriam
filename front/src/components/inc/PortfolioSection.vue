@@ -110,7 +110,7 @@
                                 >
                                     <img 
                                     :src="portfolio.overview" 
-                                    class="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                                    class="transition-transform object-contain h-36 duration-300 ease-in-out group-hover:scale-105"
                                     />
                                 </div>
                     
@@ -377,6 +377,35 @@ import espritLisa from "../../assets/images/portfolio/esprit-audio/lisa.png";
 import espritProAccess from "../../assets/images/portfolio/esprit-audio/pro-access.png";
 import espritReview from "../../assets/images/portfolio/esprit-audio/review.png";
 
+import skinovaHome1 from "../../assets/images/design/skinova/home-skinova-1.png";
+import skinovaHome2 from "../../assets/images/design/skinova/home-skinova-2.png";
+import skinovaHome3 from "../../assets/images/design/skinova/home-skinova-3.png";
+import skinovaService1 from "../../assets/images/design/skinova/service-skinova-1.png";
+import skinovaService2 from "../../assets/images/design/skinova/service-skinova-2.png";
+import skinovaProduct1 from "../../assets/images/design/skinova/products-skinova-1.png";
+import skinovaProduct2 from "../../assets/images/design/skinova/products-skinova-1.png";
+import skinovaContact from "../../assets/images/design/skinova/contact-skinova.png";
+
+import famcashWelcome from "../../assets/images/design/famcash/welcome.png";
+import famcashLogin from "../../assets/images/design/famcash/login.png";
+import famcashDashboard from "../../assets/images/design/famcash/dashboard.png";
+import famcashListTransaction from "../../assets/images/design/famcash/list-transactions-date.png";
+import famcashBudget from "../../assets/images/design/famcash/budget-inventory.png";
+import famcashReport from "../../assets/images/design/famcash/report.png";
+import famcashBackup from "../../assets/images/design/famcash/backup.jpg";
+import famcashSetting from "../../assets/images/design/famcash/setting.png";
+import famcashNotification from "../../assets/images/design/famcash/notification.png";
+
+import aftripHome from "../../assets/images/design/aftrip/home.png";
+import aftripError from "../../assets/images/design/aftrip/404-page.png";
+import aftripEstablishment from "../../assets/images/design/aftrip/add-establishment.png";
+import aftripInfoHotel from "../../assets/images/design/aftrip/info-hotel.png";
+import aftripTour from "../../assets/images/design/aftrip/tour.png";
+import aftripBooking from "../../assets/images/design/aftrip/booking-accommodation.png";
+import aftripDashboard from "../../assets/images/design/aftrip/dashboard-accommodation.png";
+import aftripOrder from "../../assets/images/design/aftrip/info-order-artisanat.png";
+import aftripProfile from "../../assets/images/design/aftrip/user-profile.png";
+
 const { t } = useI18n();
 
 const props = defineProps({
@@ -567,25 +596,67 @@ const websitePortfolios = [
 
 const designPortfolios = [
     {
-        id: 3,
-        title: 'AFTRIP',
-        overview: espritHome, 
-        briefing: 'aftripBrief',
-        stack: "JavaScript, PHP",
-        description: "espritDesc",
+        id: 1,
+        title: 'SKINOVA',
+        overview: skinovaHome1, 
+        briefing: 'skinovaBrief',
+        description: "skinovaDesc",
         galleries: [
-            espritContact,
-            espritAbout,
-            espritAcoustics,
-            espritAlphaCable,
-            espritEsprit,
-            espritLisa,
-            espritProAccess,
-            espritReview,
+            skinovaHome2,
+            skinovaHome3,
+            skinovaService1,
+            skinovaService2,
+            skinovaProduct1,
+            skinovaProduct2,
+            skinovaContact,
         ],
         features: [
-            'espritCableSale',
-            'espritEnhanceExp',
+            'skinovaCatalog',
+            'skinovaCustomOrder',
+        ]
+    },
+    {
+        id: 2,
+        title: 'FAMCASH',
+        overview: famcashWelcome, 
+        briefing: 'famcashBrief',
+        description: "famcashDesc",
+        galleries: [
+            famcashLogin,
+            famcashDashboard,
+            famcashListTransaction,
+            famcashBudget,
+            famcashReport,
+            famcashBackup,
+            famcashSetting,
+            famcashNotification,
+        ],
+        features: [
+            'famcashExpenseFeature',
+            'famcashBudgetFeature',
+        ]
+    },
+    {
+        id: 3,
+        title: 'AFTRIP',
+        overview: aftripHome, 
+        briefing: 'aftripBrief',
+        description: "aftripDesc",
+        galleries: [
+            aftripError,
+            aftripEstablishment,
+            aftripInfoHotel,
+            aftripTour,
+            aftripBooking,
+            aftripDashboard,
+            aftripOrder,
+            aftripProfile,
+        ],
+        features: [
+            'aftripDirectory',
+            'aftripHotelBooking',
+            'aftripEcommerce',
+            'aftripTravel',
         ]
     }
 ]
