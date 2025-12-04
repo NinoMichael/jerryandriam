@@ -1,5 +1,5 @@
 <template>
-    <div class="px-8 lg:px-12">
+    <div class="px-8 lg:px-12 2xl:px-52">
         <h2 
             class="font-varela text-center font-light text-xl"
             :class="{
@@ -86,6 +86,13 @@
                             <p class="mt-8 lg:w-80">
                                 {{ t(experience.mission) }}
                             </p>
+
+                            <p
+                                v-if="experience.projects" 
+                                class="mt-8 lg:w-80 font-semibold"
+                            >
+                                {{ t('projects') }} : {{ experience.projects.map(p => p).join(', ') }}
+                            </p>
                         </div>
                     </TabPanel>
 
@@ -130,6 +137,13 @@
 
                             <p class="mt-8 lg:w-80">
                                 {{ t(internship.mission) }}
+                            </p>
+
+                            <p
+                                v-if="internship.projects" 
+                                class="mt-8 lg:w-80 font-semibold"
+                            >
+                                {{ t('projects') }} : {{ internship.projects.map(p => p).join(', ') }}
                             </p>
                         </div>
                     </TabPanel>
@@ -223,6 +237,7 @@ const internships = [
         position: "frontDeveloper",
         period: "periodFrontDeveloper1",
         mission: "missionFrontDeveloper1",
+        projects: ['Infiswap'],
     },
     {
         id: 2,
@@ -230,6 +245,7 @@ const internships = [
         position: "Webmaster",
         period: "periodWebmaster",
         mission: "missionWebmaster",
+        projects: ['Omega-Connect', 'Esprit Audio'],
     },
     {
         id: 3,
@@ -247,13 +263,15 @@ const experiences = [
         position: "webFullstack",
         period: "periodWebFullstack",
         mission: "missionWebFullstack",
+        projects: ['Mp-Time', 'Infiswap'],
     },
     {
         id: 2,
         company: "freelanceAgency",
-        position: "frontDeveloper",
+        position: "frontDeveloperDesigner",
         period: "periodFrontDeveloper2",
         mission: "missionFrontDeveloper2",
+        projects: ['Aftrip'],
     },
 ]
 </script>
